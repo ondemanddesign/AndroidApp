@@ -1,0 +1,30 @@
+package com.AndroidApp;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class AndroidApp 
+extends Activity 
+implements OnClickListener
+{
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        
+        Button MyLED1 = (Button) this.findViewById(R.id.MyLED1);
+        MyLED1.setOnClickListener(this);
+    }
+
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		Log.i("onClick", "Begin");
+		
+		Log.i("onClick", "End");
+	}
+}

@@ -1,0 +1,37 @@
+package com.AndroidApp;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ToggleButton;
+
+public class AndroidApp 
+extends Activity 
+implements OnClickListener
+{
+    /** Called when the activity is first created. */
+	
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        Button MyLED1 = (Button) this.findViewById(R.id.MyLED1);
+        MyLED1.setOnClickListener(this);
+        final ToggleButton myToggle1 = (ToggleButton) this.findViewById(R.id.toggleButton1);
+        myToggle1.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+            	String toggleText = (myToggle1.isChecked()) ? "checked" : "not checked";
+                Log.i("onClick", toggleText);
+            }
+        });
+    }
+
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		Log.i("onClick", "begin");
+		Log.i("onClick", "End");
+	}
+}

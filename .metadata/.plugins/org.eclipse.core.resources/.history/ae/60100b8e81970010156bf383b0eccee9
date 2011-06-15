@@ -1,0 +1,42 @@
+package com.AndroidApp;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
+import android.widget.ToggleButton;
+import android.widget.SeekBar;
+
+public class AndroidApp 
+extends Activity 
+implements OnClickListener
+{
+	public String toggleText;
+	public ToggleButton myToggle1;
+	public TextView LEDState;
+	public SeekBar ledBrightness;
+    /** Called when the activity is first created. */
+	
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        LEDState = (TextView) this.findViewById(R.id.LED_State);
+        ledBrightness = (SeekBar) this.findViewById(R.id.led1Brightness);
+        myToggle1 = (ToggleButton) this.findViewById(R.id.toggleButton1);
+        myToggle1.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+            	checkToggle();
+            }
+        });
+    }
+    public void checkToggle(){
+    	toggleText = (myToggle1.isChecked()) ? "checked" : "not checked";
+    	//LEDState.setText(led1Brightness.getProgress());
+    }
+	public void onClick(View arg0) {		
+	}
+
+}
